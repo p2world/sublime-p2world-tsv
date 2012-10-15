@@ -3,9 +3,11 @@ sublime-p2world-tsv（xsl生成代码模板）
 
 默认快捷键：alt+shift+e
 
-1.选中整行代码（包含缩进符号）如：
+1.选中整块代码（包含缩进符号）如：
 
-    ··<a href="$1" class='link-$$'>$2</a>
+	··<li>
+    ····<a href="$1" class='link-$$'>$2</a>
+    ··</li>
 
 2.按下快捷键
 
@@ -18,8 +20,12 @@ sublime-p2world-tsv（xsl生成代码模板）
 
 5.结果应为：
 
-	··<a href="http://www.baidu.com" class='link-1'>百度</a>
-	··<a href="http://www.taobao.com" class='link-2'>淘宝</a>
+	··<li>
+	····<a href="http://www.baidu.com" class='link-1'>百度</a>
+	··</li>
+	··<li>
+	····<a href="http://www.taobao.com" class='link-2'>淘宝</a>
+	··</li>
 
 规则
 -------------------
