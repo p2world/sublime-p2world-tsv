@@ -22,21 +22,24 @@ class P2worldTsvCommand(sublime_plugin.TextCommand):
 
 
 	def on_done_data(self,msg) :
-		# 消除末尾回车
-		j=len(msg)
-		while True :
-			j-=1
-			if not (msg[j] in ("\n","\r")) :
-				break
-				
-		msg=msg[0:j+1]
+		if re.match(r'^\d{1,3}$',msg):
+			arr=[[] for i in range(int(msg))]
+		else:
+			# 消除末尾回车
+			j=len(msg)
+			while True :
+				j-=1
+				if not (msg[j] in ("\n","\r")) :
+					break
+					
+			msg=msg[0:j+1]
 
-		# 格式化xsl数据
-		data=msg.splitlines();
-		arr=[]
-		for row in data:
-			rowArr=row.split("\t")
-			arr.append(rowArr)
+			# 格式化xsl数据
+			data=msg.splitlines();
+			arr=[]
+			for row in data:
+				rowArr=row.split("\t")
+				arr.append(rowArr)
 
 		# 生成结果
 		resultArr=[]
